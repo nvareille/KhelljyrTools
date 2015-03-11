@@ -10,7 +10,6 @@ SRC	+= src/install.c
 SRC	+= src/install_js.c
 SRC	+= src/create_project.c
 SRC	+= src/project_update.c
-SRC	+= src/update_bin.c
 
 OBJ	= $(SRC:.c=.o)
 
