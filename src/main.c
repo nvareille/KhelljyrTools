@@ -6,10 +6,12 @@ static const char		*help_lines[] =
   {
     "\nKhelljyr "VERSION,
     "Here are the commands supported:\n",
+    "bin-update:\tCheck update for the khelljyr tool binary",
     "create [name]:\tCreate a new khelljyr project",
     "install-js:\tinstall the JavaScript framework in the current project",
     "update:\t\tUpdates the current version of Khelljyr in the current project",
-    "help:\t\tDisplays this message"
+    "help:\t\tDisplays this message",
+    "No parameters will compile the current project\n"
   };
 
 static void			help(Khelljyr *k, char **argv)
@@ -27,6 +29,7 @@ static void			help(Khelljyr *k, char **argv)
 
 static const Command		commands[] =
   {
+    {"bin-update", 0, update_bin},
     {"create", 1, create_project},
     {"install-js", 0, install_js},
     {"update", 0, project_update},
@@ -58,13 +61,18 @@ static int		do_commands(int argc, char **argv)
     }
   while (count < argc)
     {
-      if ((c = command_cmp(argv[count])) && (argc > count + c->nbr_args))
+      if ((c = command_cmp(argv[count])))
 	{
-	  c->fct(NULL, argv + count);
-	  count += c->nbr_args;
+	  if ((argc > count + c->nbr_args))
+	    {
+	      c->fct(NULL, argv + count);
+	      count += c->nbr_args;
+	    }
+	  else
+	    return (dprintf(2, "Missing args: %s\n", argv[count]));
 	}
       else
-	return (dprintf(2, "Missing args: %s\n", argv[count]));
+	return (dprintf(2, "Bad command: %s\n", argv[count]));
       ++count;
     }
   return (0);

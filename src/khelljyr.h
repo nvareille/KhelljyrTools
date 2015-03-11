@@ -5,6 +5,8 @@
 
 # define VERSION "0.13"
 
+# define MAIN_FILE "'#include \"Khelljyr/Khelljyr.h\"\n\nstatic void\texec()\n{\n}\n\nint\t\tmain()\n{\n\tapp_init(NULL, exec);\n}'"
+
 typedef struct		s_Khelljyr
 {
   int			a;
@@ -19,6 +21,7 @@ typedef struct		s_Command
 
 void			format_exec_command(size_t, void (*)(void *, char *, size_t), void *);
 
+void			update_bin(Khelljyr *, char **);
 void			compile(Khelljyr *, char **);
 void			create_project(Khelljyr *, char **);
 void			install(Khelljyr *, char **);
