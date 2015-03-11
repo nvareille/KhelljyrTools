@@ -1,7 +1,9 @@
 #ifndef KHELLJYR_H_
 # define KHELLJYR_H_
 
-#include <stdlib.h>
+# include <stdlib.h>
+
+# define VERSION "0.13"
 
 typedef struct		s_Khelljyr
 {

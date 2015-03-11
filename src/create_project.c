@@ -19,7 +19,7 @@ static void	go_khelljyr_repo(void *data, char *str, size_t size)
 {
   char		*name = data;
 
-  snprintf(str, size, "cd %s;echo '' > Khelljyr.conf", name);
+  snprintf(str, size, "cd %s;echo '' > Khelljyr.conf;cd src/;git clone https://github.com/nvareille/Khelljyr", name);
 }
 
 void		create_project(Khelljyr *k, char **argv)
@@ -28,5 +28,4 @@ void		create_project(Khelljyr *k, char **argv)
 
   format_exec_command(512, create_khelljyr_repo, argv[1]);
   format_exec_command(512, go_khelljyr_repo, argv[1]);
-  format_exec_command(512, set_khelljyr_repo, NULL);
 }
