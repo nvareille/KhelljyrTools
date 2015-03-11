@@ -5,6 +5,7 @@
 static const Command	commands[] =
   {
     {"create-project", 1, create_project},
+    {"install", 1, install},
     {"install-js", 0, install_js},
     {"update-project", 0, project_update},
   };

@@ -1,6 +1,13 @@
 #include <stdio.h>
 #include "khelljyr.h"
 
+static char	*path[] =
+  {
+    "install",
+    "src/",
+    NULL
+  };
+
 static void	update_pebble_project(void *data, char *str, size_t size)
 {
   (void)data;
@@ -14,4 +21,5 @@ void		project_update(Khelljyr *k, char **argv)
 
   format_exec_command(512, update_pebble_project, NULL);
   format_exec_command(512, set_khelljyr_repo, NULL);
+  install(k, path);
 }
