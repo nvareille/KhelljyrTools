@@ -4,14 +4,15 @@
 
 static const Command	commands[] =
   {
-    {"install-js", 0, install_js}
+    {"create-project", 1, create_project},
+    {"install-js", 0, install_js},
+    {"update-project", 0, project_update},
   };
 
 static const Command		*command_cmp(char *str)
 {
   unsigned int		count = 0;
   
-  printf("%s\n", str);
   while (count < (sizeof(commands) / sizeof(*commands)))
     {
       if (!strcmp(commands[count].name, str))
@@ -30,13 +31,13 @@ static int		do_commands(int argc, char **argv)
     return (dprintf(2, "Bad parameters number\n"));
   while (count < argc)
     {
-      if (*argv[count] == '-')
+      if ((c = command_cmp(argv[count])) && (argc > count + c->nbr_args))
 	{
-	  if ((c = command_cmp(argv[count] + 1)) && (argc >= count + c->nbr_args))
-	    c->fct(NULL, argv + count);
-	  else
-	    return (dprintf(2, "Bad command: %s\n", argv[count]));
+	  c->fct(NULL, argv + count);
+	  count += c->nbr_args;
 	}
+      else
+	return (dprintf(2, "Bad command: %s\n", argv[count]));
       ++count;
     }
   return (0);
