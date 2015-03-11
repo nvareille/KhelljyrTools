@@ -28,8 +28,11 @@ static int		do_commands(int argc, char **argv)
   int			count = 1;
   const Command		*c;
 
-  if (argc <= 1)
-    return (dprintf(2, "Bad parameters number\n"));
+  if (argc == 1)
+    {
+      compile(NULL, NULL);
+      return (0);
+    }
   while (count < argc)
     {
       if ((c = command_cmp(argv[count])) && (argc > count + c->nbr_args))

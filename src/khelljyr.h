@@ -17,6 +17,7 @@ typedef struct		s_Command
 
 void			format_exec_command(size_t, void (*)(void *, char *, size_t), void *);
 
+void			compile(Khelljyr *, char **);
 void			create_project(Khelljyr *, char **);
 void			install(Khelljyr *, char **);
 void			install_js(Khelljyr *, char **);

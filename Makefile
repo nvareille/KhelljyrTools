@@ -4,6 +4,7 @@ RM	= rm -fr
 NAME	= khelljyr
 
 SRC	= src/main.c
+SRC	+= src/compile.c
 SRC	+= src/exec.c
 SRC	+= src/install.c
 SRC	+= src/install_js.c
