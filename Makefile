@@ -5,6 +5,7 @@ NAME	= khelljyr
 
 SRC	= src/main.c
 SRC	+= src/compile.c
+SRC	+= src/examples.c
 SRC	+= src/env.c
 SRC	+= src/clean.c
 SRC	+= src/logs.c

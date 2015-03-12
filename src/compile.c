@@ -17,5 +17,5 @@ void		compile(Khelljyr *k, char **argv)
   if (fd != -1)
     format_exec_command(512, cc, NULL);
   else
-    dprintf(2, "This is not a Khelljyr repository\n");
+    help(k, argv);
 }

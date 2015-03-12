@@ -6,18 +6,19 @@ static const char		*help_lines[] =
   {
     "\nKhelljyr "VERSION,
     "Here are the commands supported:\n",
-    "clean:\t\tClean the project relocatable files",
-    "convert:\tUpdates the current version of Khelljyr in the current project",
-    "create [name]:\tCreate a new Khelljyr project",
-    "download:\tInstall the Khelljyr framework in the current project",
-    "help:\t\tDisplays this message",
-    "install:\tInstall the current application on Pebble",
-    "install-js:\tInstall the JavaScript framework in the current project",
-    "logs: Logs the debug messages\n",
+    "clean:\t\t\tClean the project relocatable files",
+    "convert:\t\tUpdates the current version of Khelljyr in the current project",
+    "create [name]:\t\tCreate a new Khelljyr project",
+    "download:\t\tInstall the Khelljyr framework in the current project",
+    "examples [folder]:\tGet the Khelljyr examples",
+    "help:\t\t\tDisplays this message",
+    "install:\t\tInstall the current application on Pebble",
+    "install-js:\t\tInstall the JavaScript framework in the current project",
+    "logs:\t\t\tLogs the debug messages\n",
     "No parameters will compile the current project\n"
   };
 
-static void			help(Khelljyr *k, char **argv)
+void				help(Khelljyr *k, char **argv)
 {
   (void)k;
   (void)argv;
@@ -36,6 +37,7 @@ static const Command		commands[] =
     {"convert", 0, project_update},
     {"create", 1, create_project},
     {"download", 0, install},
+    {"examples", 1, examples},
     {"install", 0, install_bin},
     {"install-js", 0, install_js},
     {"help", 0, help},

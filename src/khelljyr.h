@@ -22,6 +22,8 @@ typedef struct		s_Command
 char			*get_env_var(Khelljyr *, char *);
 void			format_exec_command(size_t, void (*)(void *, char *, size_t), void *);
 
+void			examples(Khelljyr *, char **);
+void			help(Khelljyr *, char **);
 void			clean(Khelljyr *, char **);
 void			logs(Khelljyr *, char **);
 void			install_bin(Khelljyr *, char **);
