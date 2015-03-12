@@ -9,7 +9,6 @@
 
 typedef struct		s_Khelljyr
 {
-  int			a;
 }			Khelljyr;
 
 typedef struct		s_Command
@@ -21,6 +20,8 @@ typedef struct		s_Command
 
 void			format_exec_command(size_t, void (*)(void *, char *, size_t), void *);
 
+void			clean(Khelljyr *, char **);
+void			install_bin(Khelljyr *, char **);
 void			update_bin(Khelljyr *, char **);
 void			compile(Khelljyr *, char **);
 void			create_project(Khelljyr *, char **);

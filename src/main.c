@@ -6,11 +6,11 @@ static const char		*help_lines[] =
   {
     "\nKhelljyr "VERSION,
     "Here are the commands supported:\n",
+    "convert:\tUpdates the current version of Khelljyr in the current project",
     "create [name]:\tCreate a new khelljyr project",
-    "install-js:\tinstall the Khelljyr framework in the current project",
+    "download:\tinstall the Khelljyr framework in the current project",
     "install-js:\tinstall the JavaScript framework in the current project",
-    "update:\t\tUpdates the current version of Khelljyr in the current project",
-    "help:\t\tDisplays this message",
+    "help:\t\tDisplays this message\n",
     "No parameters will compile the current project\n"
   };
 
@@ -29,10 +29,12 @@ static void			help(Khelljyr *k, char **argv)
 
 static const Command		commands[] =
   {
+    {"clean", 0, clean},
+    {"convert", 0, project_update},
     {"create", 1, create_project},
-    {"install-js", 0, install},
+    {"download", 0, install},
+    {"install", 0, install_bin},
     {"install-js", 0, install_js},
-    {"update", 0, project_update},
     {"help", 0, help}
   };
 
