@@ -9,5 +9,8 @@ void		format_exec_command(size_t size, void (*ptr)(void *, char *, size_t), void
   ptr(data, buff, size);
   value = system(buff);
   if (value)
-    dprintf(2, "Failed to exec command \"%s\"\n", buff);
+    {
+      dprintf(2, "Failed to exec command \"%s\"\n", buff);
+      exit(1);
+    }
 }
