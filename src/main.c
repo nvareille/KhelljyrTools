@@ -6,10 +6,12 @@ static const char		*help_lines[] =
   {
     "\nKhelljyr "VERSION,
     "Here are the commands supported:\n",
+    "clean:\t\tClean the project relocatable files",
     "convert:\tUpdates the current version of Khelljyr in the current project",
-    "create [name]:\tCreate a new khelljyr project",
-    "download:\tinstall the Khelljyr framework in the current project",
-    "install-js:\tinstall the JavaScript framework in the current project",
+    "create [name]:\tCreate a new Khelljyr project",
+    "download:\tInstall the Khelljyr framework in the current project",
+    "install:\tInstall the current application on Pebble",
+    "install-js:\tInstall the JavaScript framework in the current project",
     "help:\t\tDisplays this message\n",
     "No parameters will compile the current project\n"
   };
