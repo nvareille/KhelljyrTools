@@ -10,9 +10,10 @@ static const char		*help_lines[] =
     "convert:\tUpdates the current version of Khelljyr in the current project",
     "create [name]:\tCreate a new Khelljyr project",
     "download:\tInstall the Khelljyr framework in the current project",
+    "help:\t\tDisplays this message",
     "install:\tInstall the current application on Pebble",
     "install-js:\tInstall the JavaScript framework in the current project",
-    "help:\t\tDisplays this message\n",
+    "logs: Logs the debug messages\n",
     "No parameters will compile the current project\n"
   };
 
@@ -37,7 +38,8 @@ static const Command		commands[] =
     {"download", 0, install},
     {"install", 0, install_bin},
     {"install-js", 0, install_js},
-    {"help", 0, help}
+    {"help", 0, help},
+    {"logs", 0, logs},
   };
 
 static const Command		*command_cmp(char *str)
@@ -53,11 +55,13 @@ static const Command		*command_cmp(char *str)
   return (NULL);
 }
 
-static int		do_commands(int argc, char **argv)
+static int		do_commands(int argc, char **argv, char **env)
 {
   int			count = 1;
   const Command		*c;
+  Khelljyr		k;
 
+  k.env = env;
   if (argc == 1)
     {
       compile(NULL, NULL);
@@ -69,7 +73,7 @@ static int		do_commands(int argc, char **argv)
 	{
 	  if ((argc > count + c->nbr_args))
 	    {
-	      c->fct(NULL, argv + count);
+	      c->fct(&k, argv + count);
 	      count += c->nbr_args;
 	    }
 	  else
@@ -82,7 +86,7 @@ static int		do_commands(int argc, char **argv)
   return (0);
 }
 
-int			main(int argc, char **argv)
+int			main(int argc, char **argv, char **env)
 {
-  return (do_commands(argc, argv));
+  return (do_commands(argc, argv, env));
 }

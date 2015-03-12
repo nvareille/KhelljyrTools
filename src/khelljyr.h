@@ -9,6 +9,7 @@
 
 typedef struct		s_Khelljyr
 {
+  char			**env;
 }			Khelljyr;
 
 typedef struct		s_Command
@@ -18,9 +19,11 @@ typedef struct		s_Command
   void			(*fct)(Khelljyr *, char **);
 }			Command;
 
+char			*get_env_var(Khelljyr *, char *);
 void			format_exec_command(size_t, void (*)(void *, char *, size_t), void *);
 
 void			clean(Khelljyr *, char **);
+void			logs(Khelljyr *, char **);
 void			install_bin(Khelljyr *, char **);
 void			update_bin(Khelljyr *, char **);
 void			compile(Khelljyr *, char **);
