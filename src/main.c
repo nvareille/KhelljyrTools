@@ -7,6 +7,7 @@ static const char		*help_lines[] =
     "\nKhelljyr "VERSION,
     "Here are the commands supported:\n",
     "create [name]:\tCreate a new khelljyr project",
+    "install-js:\tinstall the Khelljyr framework in the current project",
     "install-js:\tinstall the JavaScript framework in the current project",
     "update:\t\tUpdates the current version of Khelljyr in the current project",
     "help:\t\tDisplays this message",
@@ -29,6 +30,7 @@ static void			help(Khelljyr *k, char **argv)
 static const Command		commands[] =
   {
     {"create", 1, create_project},
+    {"install-js", 0, install},
     {"install-js", 0, install_js},
     {"update", 0, project_update},
     {"help", 0, help}
