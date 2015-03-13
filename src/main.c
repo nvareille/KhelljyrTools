@@ -33,6 +33,7 @@ void				help(Khelljyr *k, char **argv)
 
 static const Command		commands[] =
   {
+    {"add-resource", 3, add_resource},
     {"clean", 0, clean},
     {"convert", 0, project_update},
     {"create", 1, create_project},

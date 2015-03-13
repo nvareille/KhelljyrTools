@@ -5,6 +5,7 @@ NAME	= khelljyr
 
 SRC	= src/main.c
 SRC	+= src/compile.c
+SRC	+= src/add_resource.c
 SRC	+= src/examples.c
 SRC	+= src/env.c
 SRC	+= src/clean.c
@@ -20,10 +21,16 @@ OBJ	= $(SRC:.c=.o)
 
 CFLAGS	= -W -Wextra -Wall -O2 -Isrc/
 
-all: $(NAME)
+CLIBS	= -ljansson
+
+all: jansson $(NAME)
+
+jansson:
+	git clone https://github.com/akheron/jansson
+	cd jansson && cmake . && make && sudo make install
 
 $(NAME): $(OBJ)
-	$(CC) $(OBJ) -o $(NAME)
+	$(CC) $(OBJ) -o $(NAME) $(CLIBS)
 
 clean:
 	$(RM) $(OBJ)
@@ -31,7 +38,7 @@ clean:
 
 fclean: clean
 	$(RM) $(NAME)
-
+	$(RM) jansson
 
 re: fclean all
 
