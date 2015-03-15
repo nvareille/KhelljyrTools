@@ -5,7 +5,7 @@
 static void	cc(void *data, char *str, size_t size)
 {
   (void)data;
-  snprintf(str, size, "pebble build");
+  snprintf(str, size, "pebble build && cp build/aplite/pebble-app.elf build/");
 }
 
 void		compile(Khelljyr *k, char **argv)

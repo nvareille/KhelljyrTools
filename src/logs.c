@@ -6,7 +6,7 @@
 static void	do_logs(void *data, char *str, size_t size)
 {
   (void)data;
-  snprintf(str, size, "pebble logs");
+  snprintf(str, size, "pebble logs --emulator aplite");
 }
 
 void		logs(Khelljyr *k, char **argv)

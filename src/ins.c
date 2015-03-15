@@ -8,8 +8,12 @@ static void	ins(void *data, char *str, size_t size)
   char		*var = get_env_var(data, "PEBBLE_PHONE");
 
   if (!var)
-    printf("The PEBBLE_PHONE variable is unset, using emulator\n");
-  snprintf(str, size, "pebble install");
+    {
+      printf("The PEBBLE_PHONE variable is unset, using emulator\n");
+      snprintf(str, size, "pebble install --emulator aplite");
+    }
+  else
+    snprintf(str, size, "pebble install");
 }
 
 void		install_bin(Khelljyr *k, char **argv)
