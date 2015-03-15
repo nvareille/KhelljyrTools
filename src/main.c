@@ -6,15 +6,16 @@ static const char		*help_lines[] =
   {
     "\nKhelljyr "VERSION,
     "Here are the commands supported:\n",
-    "clean:\t\t\tClean the project relocatable files",
-    "convert:\t\tUpdates the current version of Khelljyr in the current project",
-    "create [name]:\t\tCreate a new Khelljyr project",
-    "download:\t\tInstall the Khelljyr framework in the current project",
-    "examples [folder]:\tGet the Khelljyr examples",
-    "help:\t\t\tDisplays this message",
-    "install:\t\tInstall the current application on Pebble",
-    "install-js:\t\tInstall the JavaScript framework in the current project",
-    "logs:\t\t\tLogs the debug messages\n",
+    "add-resource [resource] [name] [type]:\tAdd a resource to the current Khelljyr project",
+    "clean:\t\t\t\t\tClean the project relocatable files",
+    "convert:\t\t\t\tUpdates the current version of Khelljyr in the current project",
+    "create [name]:\t\t\t\tCreate a new Khelljyr project",
+    "download:\t\t\t\tInstall the Khelljyr framework in the current project",
+    "examples [folder]:\t\t\tGet the Khelljyr examples",
+    "help:\t\t\t\t\tDisplays this message",
+    "install:\t\t\t\tInstall the current application on Pebble",
+    "install-js:\t\t\t\tInstall the JavaScript framework in the current project",
+    "logs:\t\t\t\t\tLogs the debug messages\n",
     "No parameters will compile the current project\n"
   };
 
@@ -39,9 +40,9 @@ static const Command		commands[] =
     {"create", 1, create_project},
     {"download", 0, install},
     {"examples", 1, examples},
+    {"help", 0, help},
     {"install", 0, install_bin},
     {"install-js", 0, install_js},
-    {"help", 0, help},
     {"logs", 0, logs},
   };
 
