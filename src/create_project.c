@@ -19,7 +19,7 @@ static void	go_khelljyr_repo(void *data, char *str, size_t size)
 {
   char		*name = data;
 
-  snprintf(str, size, "cd %s;echo " VERSION " > Khelljyr.conf;cd src/;git clone https://github.com/nvareille/Khelljyr", name);
+  snprintf(str, size, "cd %s;echo " VERSION " > Khelljyr.conf;mkdir resources;cd src/;git clone https://github.com/nvareille/Khelljyr", name);
 }
 
 static void	create_khelljyr_main(void *data, char *str, size_t size)
