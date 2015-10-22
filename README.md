@@ -1,5 +1,5 @@
 # KhelljyrTools
-A powerful tool to use with Khelljyr projects (0.13 +)
+A powerful tool to use with Khelljyr projects (0.14 +)
 
 To build the project:
 

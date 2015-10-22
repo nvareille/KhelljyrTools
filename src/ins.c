@@ -13,7 +13,7 @@ static void	ins(void *data, char *str, size_t size)
       snprintf(str, size, "pebble install --emulator aplite");
     }
   else
-    snprintf(str, size, "pebble install");
+    snprintf(str, size, "pebble install --phone %s", var);
 }
 
 void		install_bin(Khelljyr *k, char **argv)
